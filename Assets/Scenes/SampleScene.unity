@@ -931,6 +931,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947781220}
   m_CullTransparentMesh: 1
+--- !u!1 &1024518324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024518326}
+  - component: {fileID: 1024518325}
+  m_Layer: 0
+  m_Name: GmaeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1024518325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024518324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4d943add4dc484188ac55dc8e5c10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Puntero: {fileID: 1159826315}
+  shapes:
+  - {fileID: 3247587522526708817, guid: fab8afc4eb6764a4286d4ffca0feeb5c, type: 3}
+  - {fileID: 1922275183}
+  - {fileID: 209224675}
+  btns:
+  - {fileID: 1377076817}
+  - {fileID: 388150009}
+  - {fileID: 713129478}
+  - {fileID: 1198326697}
+  - {fileID: 1882857166}
+  - {fileID: 1685489519}
+  mylist: []
+  timer: 0
+--- !u!4 &1024518326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024518324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8606637, y: 0.11821961, z: -0.01936061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1117757773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,11 +1121,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159826315}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d4d943add4dc484188ac55dc8e5c10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Puntero: {fileID: 0}
   shapes:
   - {fileID: 3247587522526708817, guid: fab8afc4eb6764a4286d4ffca0feeb5c, type: 3}
   - {fileID: 1922275183}
@@ -1079,6 +1138,8 @@ MonoBehaviour:
   - {fileID: 1198326697}
   - {fileID: 1882857166}
   - {fileID: 1685489519}
+  mylist: []
+  timer: 0
 --- !u!212 &1159826317
 SpriteRenderer:
   m_ObjectHideFlags: 0

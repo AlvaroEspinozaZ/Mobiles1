@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject Puntero;
     public GameObject[] shapes;
     public Button[] btns;
     private Vector3 position;
     private float width;
     private float height;
     private int myid = 0;
-    private List<GameObject> mylist;
+    public List<GameObject> mylist;
     public float timer=0;
     bool isTouch = false;
     void Awake()
@@ -52,30 +53,51 @@ public class GameController : MonoBehaviour
             {
                 // Halve the size of the cube.
                 //Debug.Log("Un click");
-                //transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
-                
-                timer = 0;
-                if(timer<1.2f && timer > 0.01f && isTouch)
+                //transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);           
+                                 
+               if (isTouch)
                 {
-                    if (isTouch)
+                    if (timer > -0.1f && timer < 1.2f)
                     {
+                        Debug.Log("Estoy destrullendo");
+                        if (mylist[mylist.Count - 1] != null || mylist.Count != 0)
+                        {
+                            Destroy(mylist[mylist.Count - 1]);
+                            mylist.Remove(mylist[mylist.Count - 1]);
+                            
+                        }
+                        isTouch = false;
 
                     }
-                    Debug.Log("Estoy destrullendo");
-                    Destroy(mylist[0]);
                 }
                 else
                 {
+                    timer = 0;                    
                     isTouch = true;
-                    GameObject tmp = Instantiate(shapes[myid], position, Quaternion.identity);
-                    mylist.Add(tmp);
+                    if (timer > 1.2f)
+                    {
+                        //GameObject tmp = Instantiate(shapes[myid], position, Quaternion.identity);
+                        //mylist.Add(tmp);
+                        
+                    }
+                    
                 }
                 
             }
-
-            // Move the cube if the screen has the finger moving.
-            if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Ended)
             {
+                if (timer > 1.2f)
+                {
+                    GameObject tmp = Instantiate(shapes[myid], position, Quaternion.identity);
+                    mylist.Add(tmp);
+                    isTouch = false;
+                }
+            }
+
+
+                // Move the cube if the screen has the finger moving.
+                if (touch.phase == TouchPhase.Moved)
+                {
                 //Vector2 pos = touch.position;
                 //pos.x = (pos.x - width) / (width/10);
                 //pos.y = (pos.y - height) / (height/10);
@@ -83,11 +105,11 @@ public class GameController : MonoBehaviour
                 //position = Camera.main.ScreenToViewportPoint(pos);
                 // Position the cube.
                
-                Vector2 pos = Camera.main.ScreenToViewportPoint(touch.position);
+                Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
                 position = new Vector3(pos.x, pos.y, 0.0f);
 
-                transform.position = position;
-            }
+                Puntero.transform.position = position;
+                }
 
             if (Input.touchCount == 2)
             {
@@ -106,6 +128,7 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+       
     }
 
 

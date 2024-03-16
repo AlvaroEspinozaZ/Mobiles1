@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public PlayerController _playerController;
     public GameObject Puntero;
     public GameObject[] shapes;
     public Button[] btns;
@@ -88,7 +89,7 @@ public class GameController : MonoBehaviour
             {
                 if (timer > 1.2f)
                 {
-                    GameObject tmp = Instantiate(shapes[myid], position, Quaternion.identity);
+                   GameObject tmp = Instantiate(shapes[myid], position, Quaternion.identity);
                     mylist.Add(tmp);
                     isTouch = false;
                 }
@@ -96,7 +97,7 @@ public class GameController : MonoBehaviour
 
 
                 // Move the cube if the screen has the finger moving.
-                if (touch.phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Moved)
                 {
                 //Vector2 pos = touch.position;
                 //pos.x = (pos.x - width) / (width/10);
